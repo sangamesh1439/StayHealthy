@@ -13,11 +13,12 @@ import {
 } from 'react-native';
 
 import { RootNavigator } from './src/navigation';
+import { colors } from './src/common/theme/colors';
 
-export const App: () => React$Node = () => {
+export const App= () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle={colors.GREEN} />
       <RootNavigator />
       <SafeAreaView>
       </SafeAreaView>
