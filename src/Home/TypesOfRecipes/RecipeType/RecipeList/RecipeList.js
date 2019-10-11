@@ -17,16 +17,16 @@ import { Container, Header, Content, Icon } from 'native-base';
 import { Recipe } from './Recipe/Recipe';
 
 
-const RecipeListComponent = () => {
+const RecipeListComponent = (props) => {
     return (
         <>
             <View style={recipeListStyles.header}>
                 <View styles={{ flex: 1, flexDirection: "row" }}>
-                    <Icon name='search' recipeListStyles={recipeListStyles.searchIcon} />
+                    <Icon name='search' styles={recipeListStyles.searchIcon} />
                     <Text style={recipeListStyles.headerTextStyle}>Recipes</Text>
                 </View>
                 <Text style={recipeListStyles.headerTextStyle}>BreakFast</Text>
-                <Icon name='search' recipeListStyles={recipeListStyles.searchIcon} />
+                <Icon name='search' styles={recipeListStyles.searchIcon} />
             </View>
             <View >
                 <FlatList
@@ -46,7 +46,7 @@ const RecipeListComponent = () => {
                         }
                     ]}
                     renderItem={({ item }) => (
-                        <Recipe {...this.props} recipe={item} />
+                        <Recipe {...props} recipe={item} />
                     )}
                     keyExtractor={recipe => recipe.id}
                 />

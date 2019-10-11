@@ -12,9 +12,10 @@ import {
 } from 'react-native';
 import { recipeStyles } from './Recipe.styles';
 
-import { ImageBackground, View, ScrollView, TouchableNativeFeedback } from 'react-native';
+import { ImageBackground, View, ScrollView,TouchableOpacity, TouchableNativeFeedback } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../../../../common/theme/colors';
+import { RECIPE_DETAILS_SCREEN } from './RecipeDetails/RecipeDetails';
 
 
 const RecipeComponent = (props) => {
@@ -23,8 +24,10 @@ const RecipeComponent = (props) => {
 
     return (
         <>
-            <TouchableNativeFeedback onPress={() => {
-                // this.props.navigation.navigate(RECIPE_LIST_SCREEN);
+            <TouchableOpacity onPress={() => {
+                console.log('props.navigation')
+                console.log('props.RECIPE_DETAILS_SCREEN',RECIPE_DETAILS_SCREEN)
+                props.navigation.navigate(RECIPE_DETAILS_SCREEN);
             }}>
 
                 <ImageBackground
@@ -45,10 +48,9 @@ const RecipeComponent = (props) => {
                         <Text style={recipeStyles.minutes}>{time}</Text>
                     </View>
                 </ImageBackground>
-            </TouchableNativeFeedback>
+            </TouchableOpacity>
         </>
     );
 };
 
-export const RECIPE_SCREEN = "RECIPE_SCREEN"
 export const Recipe = RecipeComponent
