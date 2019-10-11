@@ -1,7 +1,7 @@
 import { ScaledSheet } from 'react-native-size-matters';
 import { colors } from '../../../common/theme/colors';
 
-export const recipeStyles = ScaledSheet.create({
+export const recipeTypeStyles = ScaledSheet.create({
     imageBackground: {
         height: "300@ms",
         margin: "10@ms",
@@ -14,7 +14,7 @@ export const recipeStyles = ScaledSheet.create({
         height: "100@ms",
         borderRadius: "25@ms",
     },
-    recipeDecription: {
+    recipeTypeDecription: {
         fontSize: "15@ms",
         color: colors.WHITE,
         paddingLeft: "10@ms",

@@ -1,7 +1,7 @@
 import { ScaledSheet } from 'react-native-size-matters';
 import { colors } from '../../common/theme/colors';
 
-export const recipesStyles = ScaledSheet.create({
+export const typesOfRecipesStyles = ScaledSheet.create({
     header: { backgroundColor: colors.GREEN },
     searchView: {
         alignSelf: "flex-end",

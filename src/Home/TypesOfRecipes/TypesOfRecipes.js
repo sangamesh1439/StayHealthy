@@ -4,25 +4,25 @@ import { styles } from '../../common/theme/styles';
 import { Container, Header, Content, Icon } from 'native-base';
 
 import LinearGradient from 'react-native-linear-gradient';
-import { Recipe } from './Recipe/Recipe';
-import { recipesData } from '../../common/data';
+import { RecipeType } from './RecipeType/RecipeType';
+import { typesOfRecipesData } from '../../common/data';
 import { colors } from '../../common/theme/colors';
-import { recipesStyles } from './Recipes.styles';
+import { typesOfRecipesStyles } from './TypesOfRecipes.styles';
 
-class RecipesComponent extends React.Component {
+class TypesOfRecipesComponent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={recipesStyles.header}>
-          <View style={recipesStyles.searchView}>
-            <Icon name='search' style={recipesStyles.searchIcon} />
+        <View style={typesOfRecipesStyles.header}>
+          <View style={typesOfRecipesStyles.searchView}>
+            <Icon name='search' style={typesOfRecipesStyles.searchIcon} />
           </View>
           <Text style={styles.headerTextStyle}>Recipes</Text>
         </View>
         <FlatList
-          data={recipesData}
+          data={typesOfRecipesData}
           renderItem={({ item }) => (
-            <Recipe recipe={item} />
+            <RecipeType {...this.props} recipeType={item} />
           )}
           keyExtractor={recipe => recipe.id}
         />
@@ -31,4 +31,4 @@ class RecipesComponent extends React.Component {
   }
 }
 
-export const Recipes = RecipesComponent;
+export const TypesOfRecipes = TypesOfRecipesComponent;

@@ -1,6 +1,6 @@
 
 
-export const recipesData = [
+export const typesOfRecipesData = [
     {
         id: 1,
         type: "breakfast",
