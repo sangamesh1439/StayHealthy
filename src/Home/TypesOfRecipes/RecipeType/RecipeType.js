@@ -3,12 +3,7 @@
  */
 
 import React from 'react';
-import {
-  Text,
-  ImageBackground,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, ImageBackground, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {recipeTypeStyles} from './RecipeType.styles';
 import {colors} from '../../../common/theme/colors';

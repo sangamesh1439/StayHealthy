@@ -7,15 +7,12 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-
+import {SafeAreaView} from 'react-native';
 import {RootNavigator} from './src/navigation';
-import {colors} from './src/common/theme/colors';
 
 export const App = () => {
   return (
     <>
-      {/* <StatusBar barStyle={colors.GREEN} /> */}
       <RootNavigator />
       <SafeAreaView />
     </>
