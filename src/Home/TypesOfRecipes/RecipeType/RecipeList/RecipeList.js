@@ -13,7 +13,6 @@ import {Recipe} from './Recipe/Recipe';
 import {recipeListStyles} from './RecipeList.styles';
 
 const RecipeListComponent = props => {
-  console.log('props sam', props);
   useEffect(() => {
     props.navigation.setParams({title: 'Breakfast'});
     // eslint-disable-next-line react-hooks/exhaustive-deps
