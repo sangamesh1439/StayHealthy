@@ -19,7 +19,7 @@ import { Dimensions } from 'react-native';
 import { colors } from '../../../../../../common/theme/colors';
 import { recipeDetailsStyles } from './RecipeDetails.styles';
 import { FlatList } from 'react-native-gesture-handler';
-import { ModalDemo } from './SeeIngredients/SeeIngredients';
+import { SeeIngredients } from './SeeIngredients/SeeIngredients';
 import { IconView, CurvedButton, ImageCarousel } from '../../../../../../common/components/index';
 
 class RecipeDetailsComponent extends React.Component {
@@ -67,7 +67,7 @@ class RecipeDetailsComponent extends React.Component {
                     this.setState({ showIngredientsModal: true })
                 }} />
 
-                <ModalDemo visible={this.state.showIngredientsModal} hideModal={() => {
+                <SeeIngredients visible={this.state.showIngredientsModal} hideModal={() => {
                     this.setState({ showIngredientsModal: false })
                 }} />
 

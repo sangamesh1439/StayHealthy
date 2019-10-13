@@ -1,13 +1,15 @@
 
 
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, ImageBackground, FlatList, View, Image, ScrollView } from 'react-native';
 import { Container, Header, Content, Icon } from 'native-base';
 import { colors } from '../../../../common/theme/colors';
 import { ImageCarousel, IconView, CurvedButton } from '../../../../common/components';
 import StarRating from 'react-native-star-rating';
+import { MakeReservationModal } from './MakeReservationModal/MakeReservationModal';
 
 const RestaurantDetailsComponent = (props) => {
+    const [makeReservationModalVisible, setMakeReservarionModalVisibility] = useState(false);
     return (
         <View style={{backgroundColor:colors.WHITE_LIGHT, flex:1}}>
             <ImageCarousel images={[
@@ -39,8 +41,12 @@ const RestaurantDetailsComponent = (props) => {
             </View>
             
             <CurvedButton title={"Make Reservation"} onPress={() => {
-                this.setState({ showIngredientsModal: true })
+                setMakeReservarionModalVisibility(true);
             }} />
+            <MakeReservationModal visible={makeReservationModalVisible} hideModal={() => {
+                    setMakeReservarionModalVisibility(false);
+            }} />
+                
             <View style={{marginRight: 20,marginLeft: 20,margin:5, padding: 10, backgroundColor:colors.WHITE, borderRadius:10}}>
                 <Text >{"thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy thisfsgaus hvjy tvy "}</Text>
             </View>

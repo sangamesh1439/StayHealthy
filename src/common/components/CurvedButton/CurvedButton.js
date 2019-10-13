@@ -7,7 +7,7 @@ import { curvedButtonStyles } from './CurvedButton.styles';
 
 const CurvedButtonComponent = (props) => {
     return (
-        <Button onPress={props.onPress} style={curvedButtonStyles.buttonStyle}>
+        <Button onPress={props.onPress} style={[curvedButtonStyles.buttonStyle,props.style]}>
             <Text style={curvedButtonStyles.titleStyle}>  {props.title} </Text>
         </Button>
     )
