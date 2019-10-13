@@ -19,10 +19,12 @@ import { Dimensions } from 'react-native';
 import { colors } from '../../../../../../common/theme/colors';
 import { recipeDetailsStyles } from './RecipeDetails.styles';
 import { FlatList } from 'react-native-gesture-handler';
+import { ModalDemo } from './SeeIngredients/SeeIngredients';
 
 class RecipeDetailsComponent extends React.Component {
 
     state = {
+        showIngredientsModal: false,
         entries: [
             {
                 id: 10,
@@ -114,7 +116,9 @@ class RecipeDetailsComponent extends React.Component {
                     </View>
                 </View>
 
-                <Button style={{ backgroundColor: colors.GREEN, margin: 20, borderRadius: 5 }}>
+                <Button onPress={()=>{
+                    this.setState({showIngredientsModal:true})
+                }} style={{ backgroundColor: colors.GREEN, margin: 20, borderRadius: 5 }}>
                     <Text style={{
                         flex: 1, color: colors.WHITE,
                         fontSize: 15, textAlign: "center"
@@ -122,6 +126,9 @@ class RecipeDetailsComponent extends React.Component {
                         See ingredientes
                    </Text>
                 </Button>
+                <ModalDemo visible={this.state.showIngredientsModal} hideModal ={()=>{
+                    this.setState({showIngredientsModal:false})
+                }}/>
 
                 <FlatList
                     style={{
