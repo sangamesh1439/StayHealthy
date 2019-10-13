@@ -3,6 +3,7 @@ import { Modal, Text, TouchableHighlight, View, Alert } from 'react-native';
 import { colors } from '../../../../../../../common/theme/colors';
 import { FlatList } from 'react-native-gesture-handler';
 import { Container, Header, Content, Button, Icon } from 'native-base';
+import { CurvedButton } from '../../../../../../../common/components';
 
 class ModalExample extends Component {
 
@@ -96,16 +97,9 @@ class ModalExample extends Component {
                             )}
                             keyExtractor={recipe => recipe.id}
                         />
-                        <Button onPress={() => {
+                         <CurvedButton title={"Add to Reminders"} onPress={() => {
                             this.props.hideModal()
-                        }} style={{ backgroundColor: colors.GREEN, margin: 20, borderRadius: 10 }}>
-                            <Text style={{
-                                flex: 1, color: colors.WHITE,
-                                fontSize: 15, textAlign: "center"
-                            }}>
-                                Add to Reminders
-                   </Text>
-                        </Button>
+                        }} />
                     </View>
                 </View>
             </Modal>

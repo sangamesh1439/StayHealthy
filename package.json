@@ -19,6 +19,7 @@
     "react-native-screens": "^1.0.0-alpha.23",
     "react-native-size-matters": "^0.2.1",
     "react-native-snap-carousel": "^3.8.2",
+    "react-native-star-rating": "^1.1.0",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.9.4",
     "react-navigation-tabs": "^2.5.6"

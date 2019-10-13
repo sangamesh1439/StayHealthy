@@ -11,12 +11,14 @@ import { RECIPE_SCREEN, Recipe } from '../Home/TypesOfRecipes/RecipeType/RecipeL
 import { Container, Header, Content, Icon } from 'native-base';
 import { colors } from '../common/theme/colors';
 import { RecipeDetails,RECIPE_DETAILS_SCREEN } from '../Home/TypesOfRecipes/RecipeType/RecipeList/Recipe/RecipeDetails/RecipeDetails';
+import { RestaurantDetails } from '../Home/Restaurants/Restaurant/RestaurantDetails/RestaurantDetails';
 
 const MainNavigator = createStackNavigator({
     TypesOfRecipes: TypesOfRecipes,
     RECIPE_LIST_SCREEN: RecipeList,
     RECIPE_SCREEN: Recipe,
-    RECIPE_DETAILS_SCREEN:RecipeDetails
+    RECIPE_DETAILS_SCREEN:RecipeDetails,
+    RESTAURANT_DETAILS_SCREEN:RestaurantDetails
 }, {
         // initialRouteName:"HomeNavigator",
         // initialRouteName:"RECIPE_LIST_SCREEN",
