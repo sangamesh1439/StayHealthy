@@ -11,6 +11,7 @@ import {Icon} from 'native-base';
 import {colors} from '../common/theme/colors';
 import {RecipeDetails} from '../Home/TypesOfRecipes/RecipeType/RecipeList/Recipe/RecipeDetails/RecipeDetails';
 import {RestaurantDetails} from '../Home/Restaurants/Restaurant/RestaurantDetails/RestaurantDetails';
+import {WebView} from 'react-native-webview';
 
 const defaultNavigationOptions = props => {
   return {
@@ -56,6 +57,26 @@ const HomeNavigator = createBottomTabNavigator(
           <Icon
             type={'MaterialIcons'}
             name={'restaurant-menu'}
+            style={{color: tintColor}}
+          />
+        ),
+      },
+    },
+    profile: {
+      screen: () => {
+        return (
+          <WebView
+            source={{
+              uri: 'https://www.linkedin.com/in/sangamesh-somawar-39973a86/',
+            }}
+          />
+        );
+      },
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <Icon
+            type={'MaterialCommunityIcons'}
+            name={'ninja'}
             style={{color: tintColor}}
           />
         ),

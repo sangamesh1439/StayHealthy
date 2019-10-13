@@ -5,7 +5,7 @@
  * @format
  * @flow
  */
-
+console.disableYellowBox = true;
 import React from 'react';
 import {SafeAreaView} from 'react-native';
 import {RootNavigator} from './src/navigation';

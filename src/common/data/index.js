@@ -199,13 +199,13 @@ export const typesOfRecipesData = [
     type: 'vegetarian',
     description: 'power vegetables',
     uri:
-      'https://www.thespruceeats.com/thmb/e0nEkVlN7O3VYPRn1rWz1zP5aiM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-883886156-5ba7f85646e0fb0050bdf098.jpg',
+      'http://www.foodofy.com/wp-content/uploads/2015/07/11014_14_site_clear.jpeg',
     listOfRecipes: [
       {
         id: 1,
         name: 'Morning Smoothies',
         uri:
-          'https://cdn.beobachter.ch/sites/default/files/styles/header_16_9_large/public/fileadmin/dateien/Gesundheit/smoothies.jpg',
+          'http://www.foodofy.com/wp-content/uploads/2015/07/11014_14_site_clear.jpeg',
         moreImages: [
           {
             uri:
