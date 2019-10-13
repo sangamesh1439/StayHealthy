@@ -59,7 +59,7 @@ class RecipeDetailsComponent extends React.Component {
                     title={"breakFast"} />
 
                 <View style={{ height: 70, flexDirection: "row", backgroundColor: colors.WHITE, alignItems: "center", justifyContent: "space-around" }}>
-                    <IconView type={"MaterialCommunityIcons"} name={"food-fork-drink"} description={"jhgj"} />
+                    <IconView type={"MaterialIcons"} name={"restaurant"} description={"jhgj"} />
                     <IconView type={"Ionicons"} name={"ios-time"} description={"jhgj"} />
                 </View>
 
@@ -153,7 +153,7 @@ class RecipeDetailsComponent extends React.Component {
                             numberOfPeople: "2 people"
                         }, {
                             id: 2,
-                            name: "Morning Smoothies",
+                            name: "Morning Smoothies Morning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning SmoothiesMorning Smoothies",
                             uri: "https://cdn.beobachter.ch/sites/default/files/styles/header_16_9_large/public/fileadmin/dateien/Gesundheit/smoothies.jpg",
                             time: "10 mins",
                             numberOfPeople: "2 people"
@@ -167,8 +167,8 @@ class RecipeDetailsComponent extends React.Component {
                                 flexDirection: "row",
                                 padding: 20
                             }}>
-                                <Text style={{ marginLeft: 5 }}>{index} </Text>
-                                <Text style={{ marginLeft: 5 }}>{item.name} </Text>
+                                <Text style={{ marginLeft: 5,opacity:0.5 }}>{index} </Text>
+                                <Text style={{ marginLeft: 5,fontWeight:'bold' }}>{item.name} </Text>
 
                             </View>
                             <View style={{ height: 1, backgroundColor: colors.WHITE_LIGHT }}>
@@ -184,6 +184,18 @@ class RecipeDetailsComponent extends React.Component {
         );
     };
 
+}
+
+RecipeDetailsComponent.navigationOptions = {
+    headerTransparent: true,
+    headerStyle:{
+        backgroundColor:"transparent"
+    },
+    headerRight:()=>{
+        return( 
+            <Icon type="Feather" name='bookmark' style={{color:"white",fontSize:25, padding:10}} />
+            )
+    },
 }
 
 export const RECIPE_DETAILS_SCREEN = "RECIPE_DETAILS_SCREEN"

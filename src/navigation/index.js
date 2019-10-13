@@ -4,41 +4,52 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { TypesOfRecipes } from '../Home/TypesOfRecipes/TypesOfRecipes';
 import { Restaurants } from '../Home/Restaurants/Restaurants';
+import { View } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { RecipeList } from '../Home/TypesOfRecipes/RecipeType/RecipeList/RecipeList';
 import { RECIPE_SCREEN, Recipe } from '../Home/TypesOfRecipes/RecipeType/RecipeList/Recipe/Recipe';
 import { Container, Header, Content, Icon } from 'native-base';
 import { colors } from '../common/theme/colors';
-import { RecipeDetails,RECIPE_DETAILS_SCREEN } from '../Home/TypesOfRecipes/RecipeType/RecipeList/Recipe/RecipeDetails/RecipeDetails';
+import { RecipeDetails, RECIPE_DETAILS_SCREEN } from '../Home/TypesOfRecipes/RecipeType/RecipeList/Recipe/RecipeDetails/RecipeDetails';
 import { RestaurantDetails } from '../Home/Restaurants/Restaurant/RestaurantDetails/RestaurantDetails';
 
-const MainNavigator = createStackNavigator({
+const defaultNavigationOptions = (props) => {
+    return {
+        headerStyle:{
+            backgroundColor:colors.GREEN
+        },
+        headerTintColor: 'white',
+    }
+}
+
+const recipesNavigator = createStackNavigator({
     TypesOfRecipes: TypesOfRecipes,
     RECIPE_LIST_SCREEN: RecipeList,
     RECIPE_SCREEN: Recipe,
-    RECIPE_DETAILS_SCREEN:RecipeDetails,
-    RESTAURANT_DETAILS_SCREEN:RestaurantDetails
-}, {
-        // initialRouteName:"HomeNavigator",
-        // initialRouteName:"RECIPE_LIST_SCREEN",
-        headerMode: "none"
-    });
+    RECIPE_DETAILS_SCREEN: RecipeDetails,
+}, { defaultNavigationOptions });
+
+const restaurantsNavigator = createStackNavigator({
+    Restaurants:Restaurants,
+    RESTAURANT_DETAILS_SCREEN: RestaurantDetails
+}, { defaultNavigationOptions });
+
 
 const HomeNavigator = createBottomTabNavigator({
-    MainNavigator: {
-        screen: MainNavigator,
+    recipesNavigator: {
+        screen: recipesNavigator,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => (
-                <Icon name="search" style={{ color: tintColor }} />
+                <Icon type="Feather" name="smartphone" style={{ color: tintColor }} />
             ),
         }
     },
-    Restaurants: {
-        screen: Restaurants,
+    restaurantsNavigator: {
+        screen: restaurantsNavigator,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => (
-                <Icon name="search" style={{ color: tintColor }} />
+                <Icon type={"MaterialIcons"} name={"restaurant-menu"} style={{ color: tintColor }} />
             ),
         }
     },

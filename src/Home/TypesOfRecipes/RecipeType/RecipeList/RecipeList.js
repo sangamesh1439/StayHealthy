@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Text,
     View,
@@ -18,16 +18,11 @@ import { Recipe } from './Recipe/Recipe';
 
 
 const RecipeListComponent = (props) => {
+    useEffect(()=>{
+        props.navigation.setParams({ title: 'Breakfast' })
+    },[])
     return (
         <>
-            <View style={recipeListStyles.header}>
-                <View styles={{ flex: 1, flexDirection: "row" }}>
-                    <Icon name='search' styles={recipeListStyles.searchIcon} />
-                    <Text style={recipeListStyles.headerTextStyle}>Recipes</Text>
-                </View>
-                <Text style={recipeListStyles.headerTextStyle}>BreakFast</Text>
-                <Icon name='search' styles={recipeListStyles.searchIcon} />
-            </View>
             <View >
                 <FlatList
                     data={[
@@ -54,6 +49,18 @@ const RecipeListComponent = (props) => {
         </>
     );
 };
+
+
+RecipeListComponent.navigationOptions = ({ navigation }) => {
+    return {
+        title: navigation.getParam('title', 'Recipe List'),
+        headerRight: () => {
+            return (
+                <Icon name='search' style={{ color: "white", fontSize: 25, padding: 10 }} />
+            )
+        },
+    }
+}
 
 export const RECIPE_LIST_SCREEN = "RECIPE_LIST_SCREEN"
 

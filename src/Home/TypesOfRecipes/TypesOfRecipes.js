@@ -13,12 +13,6 @@ class TypesOfRecipesComponent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={typesOfRecipesStyles.header}>
-          <View style={typesOfRecipesStyles.searchView}>
-            <Icon name='search' style={typesOfRecipesStyles.searchIcon} />
-          </View>
-          <Text style={styles.headerTextStyle}>Recipes</Text>
-        </View>
         <FlatList
           data={typesOfRecipesData}
           renderItem={({ item }) => (
@@ -28,6 +22,22 @@ class TypesOfRecipesComponent extends React.Component {
         />
       </View>
     );
+  }
+}
+
+TypesOfRecipesComponent.navigationOptions = ({ navigation,navigationOptions }) => {
+  return {
+      title: "Recipes",
+      headerTitleStyle: styles.headerTextStyle,
+      headerStyle:{
+        ...navigationOptions.headerStyle,
+        height:100
+      },
+      headerRight: () => {
+          return (
+              <Icon name='search' style={{ position:"absolute",right:0,top:0, color: "white", fontSize: 25, padding: 10 }} />
+          )
+      },
   }
 }
 
