@@ -30,9 +30,9 @@ export const imageCarouselStyles = ScaledSheet.create({
     justifyContent: 'flex-end',
   },
   dotStyle: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: '15@ms',
+    height: '15@ms',
+    borderRadius: '5@ms',
     backgroundColor: 'white',
   },
   title: {

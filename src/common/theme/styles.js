@@ -5,7 +5,7 @@ export const styles = ScaledSheet.create({
     fontSize: '40@ms',
     color: 'white',
     position: 'absolute',
-    paddingBottom: 5,
+    paddingBottom: '5@ms',
     left: 0,
     bottom: 0,
   },

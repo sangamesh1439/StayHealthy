@@ -7,7 +7,7 @@ export const typesOfRecipesStyles = ScaledSheet.create({
     right: 0,
     top: 0,
     color: 'white',
-    fontSize: 25,
-    padding: 10,
+    fontSize: '25@ms',
+    padding: '15@ms',
   },
 });

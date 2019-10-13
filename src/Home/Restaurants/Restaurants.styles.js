@@ -3,13 +3,13 @@ import {colors} from '../../common/theme/colors';
 
 export const restaurantsStyles = ScaledSheet.create({
   container: {flex: 1, backgroundColor: colors.WHITE_LIGHT},
-  flatList: {padding: 15},
+  flatList: {padding: '15@ms'},
   right: {
     position: 'absolute',
     right: 0,
     top: 0,
     color: 'white',
-    fontSize: 25,
-    padding: 10,
+    fontSize: '25@ms',
+    padding: '15@ms',
   },
 });
