@@ -9,7 +9,7 @@ const MakeReservationModalComponent = (props) => {
     const [peopleCounter, setPeopleCounter] = useState(2);
     const [selectedHour, setSelectedHour] = useState("");
 
-    const { name, shortDescription } = props.restaurant;
+    const { name, shortDescription,uri } = props.restaurant;
     return (
         <Modal
             onBackdropPress={props.hideModal}
@@ -30,7 +30,7 @@ const MakeReservationModalComponent = (props) => {
                         <View style={{ alignSelf: "center" }}>
                             <Image style={{ width: 100, borderRadius: 10, height: 80 }}
                                 source={{
-                                    uri: "https://vignette.wikia.nocookie.net/fictionalcompanies/images/2/26/Gusteaus.jpg/revision/latest?cb=20150414201647"
+                                    uri
                                 }} />
                         </View>
                     </View>

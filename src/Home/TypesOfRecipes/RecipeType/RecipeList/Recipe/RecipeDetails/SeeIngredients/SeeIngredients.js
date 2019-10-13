@@ -1,30 +1,44 @@
-import React, { Component } from 'react';
-import { Modal, Text, TouchableHighlight, View, Alert } from 'react-native';
+import React, { Component, useState } from 'react';
+import { Modal, Text, TouchableHighlight, View, Alert, TouchableNativeFeedback } from 'react-native';
 import { colors } from '../../../../../../../common/theme/colors';
 import { FlatList } from 'react-native-gesture-handler';
 import { Container, Header, Content, Button, Icon } from 'native-base';
 import { CurvedButton, ModalTitle } from '../../../../../../../common/components';
 
 const Ingredient = ({ ingredient }) => {
-    return (<View>
-        <View style={{
-            flexDirection: "row",
-            alignItems: "center"
-        }}>
-            <View style={{ height: 20, width: 20, margin: 10, borderRadius: 10, borderColor: colors.GREEN, borderWidth: 2 }} />
-            <View >
-                <Text style={{ marginTop: 5, fontSize: 20 }}>{ingredient.name} </Text>
-                <Text style={{ opacity: 0.5, marginBottom: 5, fontSize: 12 }}>{ingredient.quantity} {ingredient.quantityUnit} </Text>
-            </View>
+    const [selected, toggleSelected] = useState(false);
 
-        </View>
-        <View style={{ height: 1, backgroundColor: colors.WHITE_LIGHT }}>
-        </View>
-    </View>)
+    return (<Button style={{ backgroundColor: "transparent", elevation: 0, margin: 5 }} onPress={
+        () => {
+            toggleSelected(!selected)
+        }}>
+        <>
+            <View style={{
+                flexDirection: "row",
+                alignItems: "center",
+                opacity: selected ? 0.4 : 1
+            }}>
+                {
+                    selected === true ?
+
+                        <View style={{ height: 20, width: 20, margin: 10, borderRadius: 10, backgroundColor: colors.GREEN, opacity: 0.5 }} />
+                        :
+                        <View style={{ height: 20, width: 20, margin: 10, borderRadius: 10, borderColor: colors.GREEN, borderWidth: 2 }} />
+                }
+                <View >
+
+                    <Text style={{ marginTop: 5, fontSize: 20 }}>{ingredient.name} </Text>
+                    <Text style={{ opacity: 0.5, marginBottom: 5, fontSize: 12 }}>{ingredient.quantity} {ingredient.quantityUnit} </Text>
+                </View>
+
+            </View>
+            <View style={{ height: 1, backgroundColor: colors.WHITE_LIGHT }}>
+            </View>
+        </>
+    </Button>)
 }
 
 const SeeIngredientsComponent = (props) => {
-    // Alert.alert(JSON.stringify(props.ingredients));
     return (
         <Modal
             onBackdropPress={props.hideModal}
