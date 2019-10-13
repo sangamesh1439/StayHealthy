@@ -11,10 +11,10 @@ import { RECIPE_LIST_SCREEN } from './RecipeList/RecipeList';
 
 class RecipeTypeComponent extends React.Component {
   render() {
-    const { uri, type, description } = this.props.recipeType;
+    const { uri, type, description,listOfRecipes } = this.props.recipeType;
     return (
           <TouchableNativeFeedback onPress={()=>{
-          this.props.navigation.navigate(RECIPE_LIST_SCREEN);
+          this.props.navigation.navigate(RECIPE_LIST_SCREEN,{listOfRecipes});
           }}>
 
       <ImageBackground

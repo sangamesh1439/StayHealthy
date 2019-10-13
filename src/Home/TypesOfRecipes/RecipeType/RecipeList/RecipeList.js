@@ -16,8 +16,8 @@ import { recipeListStyles } from './RecipeList.styles';
 import { Container, Header, Content, Icon } from 'native-base';
 import { Recipe } from './Recipe/Recipe';
 
-
 const RecipeListComponent = (props) => {
+    console.log('props sam',props);
     useEffect(()=>{
         props.navigation.setParams({ title: 'Breakfast' })
     },[])
@@ -25,21 +25,7 @@ const RecipeListComponent = (props) => {
         <>
             <View >
                 <FlatList
-                    data={[
-                        {
-                            id: 1,
-                            name: "Morning Smoothies",
-                            uri: "https://cdn.beobachter.ch/sites/default/files/styles/header_16_9_large/public/fileadmin/dateien/Gesundheit/smoothies.jpg",
-                            time: "10 mins",
-                            numberOfPeople: "2 people"
-                        }, {
-                            id: 2,
-                            name: "Morning Smoothies",
-                            uri: "https://cdn.beobachter.ch/sites/default/files/styles/header_16_9_large/public/fileadmin/dateien/Gesundheit/smoothies.jpg",
-                            time: "10 mins",
-                            numberOfPeople: "2 people"
-                        }
-                    ]}
+                    data={props.navigation.state.params.listOfRecipes}
                     renderItem={({ item }) => (
                         <Recipe {...props} recipe={item} />
                     )}

@@ -27,7 +27,7 @@ const RecipeComponent = (props) => {
             <TouchableOpacity onPress={() => {
                 console.log('props.navigation')
                 console.log('props.RECIPE_DETAILS_SCREEN',RECIPE_DETAILS_SCREEN)
-                props.navigation.navigate(RECIPE_DETAILS_SCREEN);
+                props.navigation.navigate(RECIPE_DETAILS_SCREEN,{recipe:props.recipe});
             }}>
 
                 <ImageBackground
