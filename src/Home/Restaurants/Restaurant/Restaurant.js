@@ -10,7 +10,7 @@ import { RESTAURANT_DETAILS_SCREEN } from './RestaurantDetails/RestaurantDetails
 const RestaurantComponent = (props) => {
     return (
         <TouchableNativeFeedback onPress ={()=>{
-            props.navigation.navigate(RESTAURANT_DETAILS_SCREEN);
+            props.navigation.navigate(RESTAURANT_DETAILS_SCREEN,{restaurant: props.restaurant});
         }}> 
         <View style={{ flexDirection: "row", marginBottom: 15, justifyContent: "center", padding: 10, height: 110, borderRadius: 10, backgroundColor: colors.WHITE, flex: 1 }}>
             <View style={{ flex: 1 }}>

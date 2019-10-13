@@ -9,7 +9,7 @@ const MakeReservationModalComponent = (props) => {
     const [peopleCounter, setPeopleCounter] = useState(2);
     const [selectedHour, setSelectedHour] = useState("");
 
-
+    const { name, shortDescription } = props.restaurant;
     return (
         <Modal
             onBackdropPress={props.hideModal}
@@ -18,14 +18,14 @@ const MakeReservationModalComponent = (props) => {
             visible={props.visible}
             onRequestClose={props.hideModal}>
 
-            <View style={{ marginTop: 150, flex: 1, backgroundColor: colors.WHITE, borderRadius: 10, }}>
+            <View style={{ marginTop: 190, flex: 1, backgroundColor: colors.WHITE, borderRadius: 10, }}>
                 <View>
-                   <ModalTitle title={"Reservation"} hideModal={props.hideModal}/>
+                    <ModalTitle title={"Reservation"} hideModal={props.hideModal} />
 
                     <View style={{ margin: 20, width: 600, flexDirection: "row" }}>
                         <View style={{ marginRight: 80 }}>
-                            <Text style={{ fontSize: 20 }}>{"name"}</Text>
-                            <Text style={{ opacity: 0.5, fontSize: 15, width:120 }}>{"some descriptiojags "}</Text>
+                            <Text style={{ fontSize: 20 }}>{name}</Text>
+                            <Text style={{ opacity: 0.5, fontSize: 15, width: 120 }}>{shortDescription}</Text>
                         </View>
                         <View style={{ alignSelf: "center" }}>
                             <Image style={{ width: 100, borderRadius: 10, height: 80 }}
@@ -41,6 +41,13 @@ const MakeReservationModalComponent = (props) => {
                         <TimeSelection setSelectedHour={setSelectedHour} />
                     </View>
 
+                    <Button onPress={() => {
+                        props.hideModal()
+                    }} style={{ backgroundColor: "black", margin: 20, borderRadius: 5 }}>
+                         <Icon type={"AntDesign"} name='apple1' style={{position:"absolute", marginLeft:100,color: "white" }} />
+
+                        <Text style={{ color: "white",flex:1, textAlign:"center", fontSize:30 }}>  Pay </Text>
+                    </Button>
                 </View>
             </View>
 
