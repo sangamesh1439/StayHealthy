@@ -48,22 +48,24 @@ const SeeIngredientsComponent = props => {
       transparent={true}
       visible={props.visible}
       onRequestClose={props.hideModal}>
-      <View style={seeIngredientsStyles.modalContainer}>
-        <View>
-          <ModalTitle title={'Ingredients'} hideModal={props.hideModal} />
-
-          <FlatList
-            style={seeIngredientsStyles.flatlist}
-            data={props.ingredients}
-            renderItem={({item, index}) => <Ingredient ingredient={item} />}
-            keyExtractor={(recipe, index) => index}
-          />
-          <CurvedButton
-            title={'Add to Reminders'}
-            onPress={() => {
-              props.hideModal();
-            }}
-          />
+      <View style={seeIngredientsStyles.mainContainer}>
+        <View style={seeIngredientsStyles.overley} />
+        <View style={seeIngredientsStyles.modalContainer}>
+          <View>
+            <ModalTitle title={'Ingredients'} hideModal={props.hideModal} />
+            <FlatList
+              style={seeIngredientsStyles.flatlist}
+              data={props.ingredients}
+              renderItem={({item, index}) => <Ingredient ingredient={item} />}
+              keyExtractor={(recipe, index) => index}
+            />
+            <CurvedButton
+              title={'Add to Reminders'}
+              onPress={() => {
+                props.hideModal();
+              }}
+            />
+          </View>
         </View>
       </View>
     </Modal>

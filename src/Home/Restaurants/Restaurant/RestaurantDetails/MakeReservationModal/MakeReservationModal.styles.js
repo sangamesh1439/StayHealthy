@@ -3,10 +3,19 @@ import {colors} from '../../../../../common/theme/colors';
 
 export const makeReservationModalStyles = ScaledSheet.create({
   modalContainer: {
-    marginTop: 190,
+    alignSelf: 'flex-end',
     flex: 1,
+    position: 'absolute',
+    width: '100%',
     backgroundColor: colors.WHITE,
     borderRadius: 10,
+  },
+  mainContainer: {flex: 1, borderRadius: 10, flexDirection: 'row'},
+  overley: {
+    flex: 1,
+    backgroundColor: 'black',
+    opacity: 0.5,
+    flexDirection: 'row',
   },
   name: {fontSize: 20},
   description: {opacity: 0.5, fontSize: 15, width: 120},

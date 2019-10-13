@@ -2,6 +2,13 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {colors} from '../../../../../../../common/theme/colors';
 
 export const seeIngredientsStyles = ScaledSheet.create({
+  mainContainer: {flex: 1, borderRadius: 10, flexDirection: 'row'},
+  overley: {
+    flex: 1,
+    backgroundColor: 'black',
+    opacity: 0.5,
+    flexDirection: 'row',
+  },
   ingredientContainer: {
     backgroundColor: 'transparent',
     elevation: 0,
@@ -26,8 +33,10 @@ export const seeIngredientsStyles = ScaledSheet.create({
     opacity: 0.5,
   },
   modalContainer: {
-    marginTop: 150,
+    alignSelf: 'flex-end',
     flex: 1,
+    position: 'absolute',
+    width: '100%',
     backgroundColor: colors.WHITE,
     borderRadius: 10,
   },

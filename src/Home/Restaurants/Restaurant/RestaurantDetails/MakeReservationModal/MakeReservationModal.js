@@ -22,47 +22,50 @@ const MakeReservationModalComponent = props => {
       transparent={true}
       visible={props.visible}
       onRequestClose={props.hideModal}>
-      <View style={makeReservationModalStyles.modalContainer}>
-        <View>
-          <ModalTitle title={'Reservation'} hideModal={props.hideModal} />
-          <View style={makeReservationModalStyles.row}>
-            <View style={makeReservationModalStyles.nameContainer}>
-              <Text style={makeReservationModalStyles.name}>{name}</Text>
-              <Text style={makeReservationModalStyles.description}>
-                {shortDescription}
-              </Text>
+      <View style={makeReservationModalStyles.mainContainer}>
+        <View style={makeReservationModalStyles.overley} />
+        <View style={makeReservationModalStyles.modalContainer}>
+          <View>
+            <ModalTitle title={'Reservation'} hideModal={props.hideModal} />
+            <View style={makeReservationModalStyles.row}>
+              <View style={makeReservationModalStyles.nameContainer}>
+                <Text style={makeReservationModalStyles.name}>{name}</Text>
+                <Text style={makeReservationModalStyles.description}>
+                  {shortDescription}
+                </Text>
+              </View>
+              <View style={makeReservationModalStyles.imageContainer}>
+                <Image
+                  style={makeReservationModalStyles.image}
+                  source={{
+                    uri,
+                  }}
+                />
+              </View>
             </View>
-            <View style={makeReservationModalStyles.imageContainer}>
-              <Image
-                style={makeReservationModalStyles.image}
-                source={{
-                  uri,
-                }}
+            <Divider />
+            <View style={makeReservationModalStyles.counterContainer}>
+              <Counter
+                peopleCounter={peopleCounter}
+                setPeopleCounter={setPeopleCounter}
               />
+              <TimeSelection setSelectedHour={setSelectedHour} />
             </View>
-          </View>
-          <Divider />
-          <View style={makeReservationModalStyles.counterContainer}>
-            <Counter
-              peopleCounter={peopleCounter}
-              setPeopleCounter={setPeopleCounter}
-            />
-            <TimeSelection setSelectedHour={setSelectedHour} />
-          </View>
 
-          <Button
-            onPress={() => {
-              props.hideModal();
-            }}
-            style={makeReservationModalStyles.appleIconContainer}>
-            <Icon
-              type={'AntDesign'}
-              name="apple1"
-              style={makeReservationModalStyles.appleIcon}
-            />
+            <Button
+              onPress={() => {
+                props.hideModal();
+              }}
+              style={makeReservationModalStyles.appleIconContainer}>
+              <Icon
+                type={'AntDesign'}
+                name="apple1"
+                style={makeReservationModalStyles.appleIcon}
+              />
 
-            <Text style={makeReservationModalStyles.payButton}> Pay </Text>
-          </Button>
+              <Text style={makeReservationModalStyles.payButton}> Pay </Text>
+            </Button>
+          </View>
         </View>
       </View>
     </Modal>
