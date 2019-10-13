@@ -1,4 +1,4 @@
-export { IconView } from './IconView/IconView';
+export {IconView} from './IconView/IconView';
 export {CurvedButton} from './CurvedButton/CurvedButton';
 export {ImageCarousel} from './ImageCarousel/ImageCarousel';
 export {TimeSelection} from './TimeSelection/TimeSelection';

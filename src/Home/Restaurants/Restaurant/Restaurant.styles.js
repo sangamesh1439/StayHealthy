@@ -1,5 +1,3 @@
+import {ScaledSheet} from 'react-native-size-matters';
 
-import { ScaledSheet } from 'react-native-size-matters';
-
-export const restaurantStyles = ScaledSheet.create({
-});
+export const restaurantStyles = ScaledSheet.create({});
