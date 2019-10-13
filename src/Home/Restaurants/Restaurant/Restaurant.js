@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, TouchableNativeFeedback} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {colors} from '../../../common/theme/colors';
 import StarRating from 'react-native-star-rating';
 import {RESTAURANT_DETAILS_SCREEN} from './RestaurantDetails/RestaurantDetails';
@@ -7,7 +7,7 @@ import {restaurantStyles} from './Restaurant.styles';
 
 const RestaurantComponent = props => {
   return (
-    <TouchableNativeFeedback
+    <TouchableOpacity
       onPress={() => {
         props.navigation.navigate(RESTAURANT_DETAILS_SCREEN, {
           restaurant: props.restaurant,
@@ -40,7 +40,7 @@ const RestaurantComponent = props => {
           />
         </View>
       </View>
-    </TouchableNativeFeedback>
+    </TouchableOpacity>
   );
 };
 

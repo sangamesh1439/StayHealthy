@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableHighlight} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {View} from 'react-native';
 import {Divider} from '../Divider/Divider';
 
@@ -9,7 +9,7 @@ import {modalTitleStyles} from './ModalTitle.styles';
 const ModalTitleComponent = props => {
   return (
     <View>
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={() => {
           props.hideModal();
         }}
@@ -22,7 +22,7 @@ const ModalTitleComponent = props => {
           />
           <Text style={modalTitleStyles.title}>{props.title}</Text>
         </>
-      </TouchableHighlight>
+      </TouchableOpacity>
       <Divider />
     </View>
   );

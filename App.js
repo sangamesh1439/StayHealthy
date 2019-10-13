@@ -15,7 +15,7 @@ import {colors} from './src/common/theme/colors';
 export const App = () => {
   return (
     <>
-      <StatusBar barStyle={colors.GREEN} />
+      {/* <StatusBar barStyle={colors.GREEN} /> */}
       <RootNavigator />
       <SafeAreaView />
     </>

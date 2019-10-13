@@ -7,7 +7,7 @@ import {
   Text,
   ImageBackground,
   View,
-  TouchableNativeFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {recipeTypeStyles} from './RecipeType.styles';
@@ -18,7 +18,7 @@ class RecipeTypeComponent extends React.Component {
   render() {
     const {uri, type, description, listOfRecipes} = this.props.recipeType;
     return (
-      <TouchableNativeFeedback
+      <TouchableOpacity
         onPress={() => {
           this.props.navigation.navigate(RECIPE_LIST_SCREEN, {listOfRecipes});
         }}>
@@ -39,7 +39,7 @@ class RecipeTypeComponent extends React.Component {
             </View>
           </LinearGradient>
         </ImageBackground>
-      </TouchableNativeFeedback>
+      </TouchableOpacity>
     );
   }
 }
