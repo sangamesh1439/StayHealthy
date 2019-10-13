@@ -1,64 +1,40 @@
-import React, {Component, useState} from 'react';
-import {
-  Modal,
-  Text,
-  TouchableHighlight,
-  View,
-  Alert,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {colors} from '../../../../../../../common/theme/colors';
+import React, {useState} from 'react';
+import {Modal, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import {Container, Header, Content, Button, Icon} from 'native-base';
+import {Button} from 'native-base';
 import {CurvedButton, ModalTitle} from '../../../../../../../common/components';
+import {seeIngredientsStyles} from './SeeIngredients.styles';
+import {Divider} from '../../../../../../../common/components/Divider/Divider';
 
 const Ingredient = ({ingredient}) => {
   const [selected, toggleSelected] = useState(false);
 
   return (
     <Button
-      style={{backgroundColor: 'transparent', elevation: 0, margin: 5}}
+      style={seeIngredientsStyles.ingredientContainer}
       onPress={() => {
         toggleSelected(!selected);
       }}>
       <>
         <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            opacity: selected ? 0.4 : 1,
-          }}>
+          style={
+            selected
+              ? seeIngredientsStyles.ingredientRowSelected
+              : seeIngredientsStyles.ingredientRowUnSelected
+          }>
           {selected === true ? (
-            <View
-              style={{
-                height: 20,
-                width: 20,
-                margin: 10,
-                borderRadius: 10,
-                backgroundColor: colors.GREEN,
-                opacity: 0.5,
-              }}
-            />
+            <View style={seeIngredientsStyles.selectedIngredient} />
           ) : (
-            <View
-              style={{
-                height: 20,
-                width: 20,
-                margin: 10,
-                borderRadius: 10,
-                borderColor: colors.GREEN,
-                borderWidth: 2,
-              }}
-            />
+            <View style={seeIngredientsStyles.unselectedIngredient} />
           )}
           <View>
-            <Text style={{marginTop: 5, fontSize: 20}}>{ingredient.name} </Text>
-            <Text style={{opacity: 0.5, marginBottom: 5, fontSize: 12}}>
+            <Text style={seeIngredientsStyles.name}>{ingredient.name} </Text>
+            <Text style={seeIngredientsStyles.quantity}>
               {ingredient.quantity} {ingredient.quantityUnit}{' '}
             </Text>
           </View>
         </View>
-        <View style={{height: 1, backgroundColor: colors.WHITE_LIGHT}} />
+        <Divider />
       </>
     </Button>
   );
@@ -72,23 +48,12 @@ const SeeIngredientsComponent = props => {
       transparent={true}
       visible={props.visible}
       onRequestClose={props.hideModal}>
-      <View
-        style={{
-          marginTop: 150,
-          flex: 1,
-          backgroundColor: colors.WHITE,
-          borderRadius: 10,
-        }}>
+      <View style={seeIngredientsStyles.modalContainer}>
         <View>
           <ModalTitle title={'Ingredients'} hideModal={props.hideModal} />
 
           <FlatList
-            style={{
-              flexGrow: 0,
-              marginTop: 0,
-              backgroundColor: colors.WHITE,
-              borderRadius: 10,
-            }}
+            style={seeIngredientsStyles.flatlist}
             data={props.ingredients}
             renderItem={({item, index}) => <Ingredient ingredient={item} />}
             keyExtractor={(recipe, index) => index}

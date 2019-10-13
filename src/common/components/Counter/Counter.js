@@ -1,29 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text} from 'react-native';
-import {
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {colors} from '../../theme/colors';
-import {Container, Header, Content, Button, Icon} from 'native-base';
+import {View} from 'react-native';
+import {Icon} from 'native-base';
 import {counterStyles} from './Counter.styles';
-import {CurvedButton} from '../CurvedButton/CurvedButton';
 
 const CounterComponent = props => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        marginVertical: 15,
-        borderRadius: 8,
-        height: 45,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 5,
-        backgroundColor: colors.GREEN_LIGHT,
-      }}>
+    <View style={counterStyles.container}>
       <Icon
         onPress={() => {
           if (props.peopleCounter > 1) {
@@ -32,9 +15,9 @@ const CounterComponent = props => {
         }}
         type="AntDesign"
         name="minus"
-        style={{color: colors.GREEN}}
+        style={counterStyles.minus}
       />
-      <Text style={{color: colors.GREEN, fontSize: 17}}>
+      <Text style={counterStyles.numberOfPeople}>
         {' '}
         {props.peopleCounter} peopple
       </Text>
@@ -44,7 +27,7 @@ const CounterComponent = props => {
         }}
         type="AntDesign"
         name="plus"
-        style={{color: colors.GREEN}}
+        style={counterStyles.plus}
       />
     </View>
   );

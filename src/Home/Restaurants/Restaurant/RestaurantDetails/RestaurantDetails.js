@@ -1,14 +1,6 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  ImageBackground,
-  FlatList,
-  View,
-  Image,
-  ScrollView,
-  Alert,
-} from 'react-native';
-import {Container, Header, Content, Icon} from 'native-base';
+import {Text, View} from 'react-native';
+import {Icon} from 'native-base';
 import {colors} from '../../../../common/theme/colors';
 import {
   ImageCarousel,
@@ -17,12 +9,12 @@ import {
 } from '../../../../common/components';
 import StarRating from 'react-native-star-rating';
 import {MakeReservationModal} from './MakeReservationModal/MakeReservationModal';
+import {restaurantDetailsStyles} from './RestaurantDetails.styles';
 
 const RestaurantDetailsComponent = props => {
   const {
     moreImages,
     name,
-    description,
     reviews,
     moreDescription,
     time,
@@ -32,17 +24,10 @@ const RestaurantDetailsComponent = props => {
     setMakeReservarionModalVisibility,
   ] = useState(false);
   return (
-    <View style={{backgroundColor: colors.WHITE_LIGHT, flex: 1}}>
+    <View style={restaurantDetailsStyles.container}>
       <ImageCarousel images={moreImages} title={name} />
 
-      <View
-        style={{
-          height: 70,
-          flexDirection: 'row',
-          backgroundColor: colors.WHITE,
-          alignItems: 'center',
-          justifyContent: 'space-around',
-        }}>
+      <View style={restaurantDetailsStyles.row}>
         <IconView type={'Foundation'} name={'dollar-bill'} description={'€€'} />
 
         <View>
@@ -54,7 +39,7 @@ const RestaurantDetailsComponent = props => {
             starSize={20}
             fullStarColor={colors.GREEN}
           />
-          <Text style={{color: colors.GREEN, textAlign: 'center'}}>
+          <Text style={restaurantDetailsStyles.peopleCount}>
             {reviews} people
           </Text>
         </View>
@@ -76,27 +61,13 @@ const RestaurantDetailsComponent = props => {
         }}
       />
 
-      <View
-        style={{
-          marginRight: 20,
-          marginLeft: 20,
-          margin: 5,
-          padding: 10,
-          backgroundColor: colors.WHITE,
-          borderRadius: 10,
-        }}>
+      <View style={restaurantDetailsStyles.description}>
         <Text>{moreDescription.description}</Text>
       </View>
-      <View
-        style={{
-          marginRight: 20,
-          marginLeft: 20,
-          margin: 5,
-          padding: 10,
-          backgroundColor: colors.WHITE,
-          borderRadius: 10,
-        }}>
-        <Text style={{fontSize: 30}}>{moreDescription.title}</Text>
+      <View style={restaurantDetailsStyles.titleContainer}>
+        <Text style={restaurantDetailsStyles.title}>
+          {moreDescription.title}
+        </Text>
         <Text>{moreDescription.description}</Text>
       </View>
     </View>
@@ -105,15 +76,13 @@ const RestaurantDetailsComponent = props => {
 
 RestaurantDetailsComponent.navigationOptions = {
   headerTransparent: true,
-  headerStyle: {
-    backgroundColor: 'transparent',
-  },
+  headerStyle: restaurantDetailsStyles.headerStyle,
   headerRight: () => {
     return (
       <Icon
         type="Feather"
         name="bookmark"
-        style={{color: 'white', fontSize: 25, padding: 10}}
+        style={restaurantDetailsStyles.headerRight}
       />
     );
   },

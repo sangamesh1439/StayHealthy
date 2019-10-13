@@ -10,13 +10,7 @@ import React from 'react';
 import {Text} from 'react-native';
 import {recipeStyles} from './Recipe.styles';
 
-import {
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableOpacity,
-  TouchableNativeFeedback,
-} from 'react-native';
+import {ImageBackground, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '../../../../../common/theme/colors';
 import {RECIPE_DETAILS_SCREEN} from './RecipeDetails/RecipeDetails';
@@ -41,12 +35,7 @@ const RecipeComponent = props => {
           <LinearGradient
             colors={[colors.LIGHTBLACK, colors.TRANSPARENT]}
             style={recipeStyles.linearGradientStyle}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                justifyContent: 'space-between',
-              }}>
+            <View style={recipeStyles.recipeTypeDecriptionContainer}>
               <Text style={recipeStyles.recipeTypeDecription}>{name}</Text>
             </View>
           </LinearGradient>

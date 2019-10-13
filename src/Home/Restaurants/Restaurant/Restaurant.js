@@ -1,17 +1,9 @@
 import React from 'react';
-import {
-  Text,
-  ImageBackground,
-  FlatList,
-  View,
-  Image,
-  TouchableNativeFeedback,
-  ScrollView,
-} from 'react-native';
-import {Container, Header, Content, Icon} from 'native-base';
+import {Text, View, Image, TouchableNativeFeedback} from 'react-native';
 import {colors} from '../../../common/theme/colors';
 import StarRating from 'react-native-star-rating';
 import {RESTAURANT_DETAILS_SCREEN} from './RestaurantDetails/RestaurantDetails';
+import {restaurantStyles} from './Restaurant.styles';
 
 const RestaurantComponent = props => {
   return (
@@ -21,24 +13,12 @@ const RestaurantComponent = props => {
           restaurant: props.restaurant,
         });
       }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          marginBottom: 15,
-          justifyContent: 'center',
-          padding: 10,
-          height: 110,
-          borderRadius: 10,
-          backgroundColor: colors.WHITE,
-          flex: 1,
-        }}>
-        <View style={{flex: 1}}>
-          <Text style={{fontSize: 20}}>{props.restaurant.name}</Text>
-          <Text style={{opacity: 0.5, fontSize: 15}}>
-            {props.restaurant.type}
-          </Text>
-          <View style={{flexDirection: 'row', paddingTop: 15}}>
-            <View style={{width: 100, height: 10}}>
+      <View style={restaurantStyles.container}>
+        <View style={restaurantStyles.subContainer}>
+          <Text style={restaurantStyles.name}>{props.restaurant.name}</Text>
+          <Text style={restaurantStyles.type}>{props.restaurant.type}</Text>
+          <View style={restaurantStyles.startRatingContainer}>
+            <View style={restaurantStyles.starRating}>
               <StarRating
                 disabled={true}
                 maxStars={5}
@@ -48,14 +28,14 @@ const RestaurantComponent = props => {
                 fullStarColor={colors.GREEN}
               />
             </View>
-            <Text style={{opacity: 0.5, fontSize: 15, marginLeft: 10}}>
+            <Text style={restaurantStyles.reviews}>
               {props.restaurant.reviews} reviews
             </Text>
           </View>
         </View>
-        <View style={{alignSelf: 'center'}}>
+        <View style={restaurantStyles.imageContainer}>
           <Image
-            style={{width: 100, borderRadius: 10, height: 80}}
+            style={restaurantStyles.image}
             source={{uri: props.restaurant.uri}}
           />
         </View>

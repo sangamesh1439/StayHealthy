@@ -1,15 +1,9 @@
-import React, {useState} from 'react';
-import {Text, TouchableHighlight} from 'react-native';
-import {
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {colors} from '../../theme/colors';
+import React from 'react';
+import {View} from 'react-native';
+import {dividerStyles} from './Divider.styles';
 
 const DividerComponent = props => {
-  return <View style={{height: 1, backgroundColor: colors.WHITE_LIGHT}} />;
+  return <View style={dividerStyles.divider} />;
 };
 
 export const Divider = DividerComponent;

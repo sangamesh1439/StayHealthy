@@ -1,13 +1,5 @@
 import React, {useState} from 'react';
-import {Text} from 'react-native';
-import {
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {colors} from '../../theme/colors';
-import {Container, Header, Content, Button, Icon} from 'native-base';
+import {View} from 'react-native';
 import {timeSelectionStyles} from './TimeSelection.styles';
 import {CurvedButton} from '../CurvedButton/CurvedButton';
 
@@ -27,7 +19,7 @@ const TimeSelectionComponent = props => {
     `${nextHour}:40`,
   ];
   return (
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+    <View style={timeSelectionStyles.container}>
       <CurvedButton
         style={
           selectedHour === 0

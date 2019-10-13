@@ -1,5 +1,4 @@
 import {ScaledSheet} from 'react-native-size-matters';
-import {colors} from '../../theme/colors';
 
 export const timeSelectionStyles = ScaledSheet.create({
   hourButtonStyle: {
@@ -7,4 +6,5 @@ export const timeSelectionStyles = ScaledSheet.create({
     margin: '0@ms',
     opacity: 0.5,
   },
+  container: {flexDirection: 'row', justifyContent: 'space-between'},
 });

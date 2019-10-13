@@ -1,18 +1,17 @@
 import React from 'react';
-import {Text, View, FlatList, Image} from 'react-native';
-import {Container, Header, Content, Button, Icon} from 'native-base';
-
-import {colors} from '../../common/theme/colors';
+import {View, FlatList} from 'react-native';
+import {Icon} from 'native-base';
 import {Restaurant} from './Restaurant/Restaurant';
 import {styles} from '../../common/theme/styles';
 import {restaurantsData} from '../../common/data';
+import {restaurantsStyles} from './Restaurants.styles';
 
 class RestaurantsComponent extends React.Component {
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: colors.WHITE_LIGHT}}>
+      <View style={restaurantsStyles.container}>
         <FlatList
-          style={{padding: 15}}
+          style={restaurantsStyles.flatList}
           data={restaurantsData}
           renderItem={({item}) => (
             <Restaurant {...this.props} restaurant={item} />
@@ -33,19 +32,7 @@ RestaurantsComponent.navigationOptions = ({navigation, navigationOptions}) => {
       height: 100,
     },
     headerRight: () => {
-      return (
-        <Icon
-          name="search"
-          style={{
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            color: 'white',
-            fontSize: 25,
-            padding: 10,
-          }}
-        />
-      );
+      return <Icon name="search" style={restaurantsStyles.right} />;
     },
   };
 };

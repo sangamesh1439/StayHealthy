@@ -14,6 +14,11 @@ export const recipeStyles = ScaledSheet.create({
     height: '120@ms',
     borderRadius: '10@ms',
   },
+  recipeTypeDecriptionContainer: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    justifyContent: 'space-between',
+  },
   recipeTypeDecription: {
     fontSize: '25@ms',
     color: colors.WHITE,

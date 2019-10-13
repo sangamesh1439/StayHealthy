@@ -8,18 +8,8 @@
 
 import React, {useState} from 'react';
 import {Text} from 'react-native';
-import {
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {Container, Header, Content, Button, Icon} from 'native-base';
-
-import {Dimensions} from 'react-native';
-import {colors} from '../../../../../../common/theme/colors';
+import {View} from 'react-native';
+import {Icon} from 'native-base';
 import {recipeDetailsStyles} from './RecipeDetails.styles';
 import {FlatList} from 'react-native-gesture-handler';
 import {SeeIngredients} from './SeeIngredients/SeeIngredients';
@@ -28,6 +18,7 @@ import {
   CurvedButton,
   ImageCarousel,
 } from '../../../../../../common/components/index';
+import {Divider} from '../../../../../../common/components/Divider/Divider';
 
 const RecipeDetailsComponent = props => {
   const [
@@ -44,17 +35,10 @@ const RecipeDetailsComponent = props => {
     ingredients,
   } = props.navigation.state.params.recipe;
   return (
-    <View style={{backgroundColor: colors.WHITE_LIGHT, flex: 1}}>
+    <View style={recipeDetailsStyles.container}>
       <ImageCarousel images={moreImages} title={name} />
 
-      <View
-        style={{
-          height: 70,
-          flexDirection: 'row',
-          backgroundColor: colors.WHITE,
-          alignItems: 'center',
-          justifyContent: 'space-around',
-        }}>
+      <View style={recipeDetailsStyles.row}>
         <IconView
           type={'MaterialIcons'}
           name={'restaurant'}
@@ -79,27 +63,16 @@ const RecipeDetailsComponent = props => {
       />
 
       <FlatList
-        style={{
-          flexGrow: 0,
-          margin: 20,
-          marginTop: 0,
-          backgroundColor: colors.WHITE,
-          borderRadius: 10,
-        }}
+        style={recipeDetailsStyles.flatList}
         data={steps}
         renderItem={({item, index}) => (
           <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                padding: 20,
-              }}>
-              <Text style={{marginLeft: 5, opacity: 0.5}}>{index} </Text>
-              <Text style={{marginLeft: 5}}>{item} </Text>
+            <View style={recipeDetailsStyles.step}>
+              <Text style={recipeDetailsStyles.count}>{index} </Text>
+              <Text style={recipeDetailsStyles.item}>{item} </Text>
             </View>
-            <View style={{height: 1, backgroundColor: colors.WHITE_LIGHT}} />
+            <Divider />
           </View>
-          // <Recipe {...props} recipe={item} />
         )}
         keyExtractor={recipe => recipe.id}
       />
@@ -109,15 +82,13 @@ const RecipeDetailsComponent = props => {
 
 RecipeDetailsComponent.navigationOptions = {
   headerTransparent: true,
-  headerStyle: {
-    backgroundColor: 'transparent',
-  },
+  headerStyle: recipeDetailsStyles.header,
   headerRight: () => {
     return (
       <Icon
         type="Feather"
         name="bookmark"
-        style={{color: 'white', fontSize: 25, padding: 10}}
+        style={recipeDetailsStyles.headerRight}
       />
     );
   },

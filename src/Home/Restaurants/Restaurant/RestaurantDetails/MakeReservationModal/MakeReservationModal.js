@@ -1,25 +1,18 @@
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
+import {Modal, Text, View, Image} from 'react-native';
+import {Button, Icon} from 'native-base';
 import {
-  Modal,
-  Text,
-  TouchableHighlight,
-  View,
-  Alert,
-  Image,
-} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
-import {Container, Header, Content, Button, Icon} from 'native-base';
-import {
-  CurvedButton,
   TimeSelection,
   Counter,
   ModalTitle,
 } from '../../../../../common/components';
-import {colors} from '../../../../../common/theme/colors';
+import {makeReservationModalStyles} from './MakeReservationModal.styles';
+import {Divider} from '../../../../../common/components/Divider/Divider';
 
 const MakeReservationModalComponent = props => {
   const [peopleCounter, setPeopleCounter] = useState(2);
-  const [selectedHour, setSelectedHour] = useState('');
+
+  const [, setSelectedHour] = useState('');
 
   const {name, shortDescription, uri} = props.restaurant;
   return (
@@ -29,35 +22,27 @@ const MakeReservationModalComponent = props => {
       transparent={true}
       visible={props.visible}
       onRequestClose={props.hideModal}>
-      <View
-        style={{
-          marginTop: 190,
-          flex: 1,
-          backgroundColor: colors.WHITE,
-          borderRadius: 10,
-        }}>
+      <View style={makeReservationModalStyles.modalContainer}>
         <View>
           <ModalTitle title={'Reservation'} hideModal={props.hideModal} />
-
-          <View style={{margin: 20, width: 600, flexDirection: 'row'}}>
-            <View style={{marginRight: 80}}>
-              <Text style={{fontSize: 20}}>{name}</Text>
-              <Text style={{opacity: 0.5, fontSize: 15, width: 120}}>
+          <View style={makeReservationModalStyles.row}>
+            <View style={makeReservationModalStyles.nameContainer}>
+              <Text style={makeReservationModalStyles.name}>{name}</Text>
+              <Text style={makeReservationModalStyles.description}>
                 {shortDescription}
               </Text>
             </View>
-            <View style={{alignSelf: 'center'}}>
+            <View style={makeReservationModalStyles.imageContainer}>
               <Image
-                style={{width: 100, borderRadius: 10, height: 80}}
+                style={makeReservationModalStyles.image}
                 source={{
                   uri,
                 }}
               />
             </View>
           </View>
-          <View style={{height: 1, backgroundColor: colors.WHITE_LIGHT}} />
-
-          <View style={{margin: 20}}>
+          <Divider />
+          <View style={makeReservationModalStyles.counterContainer}>
             <Counter
               peopleCounter={peopleCounter}
               setPeopleCounter={setPeopleCounter}
@@ -69,23 +54,14 @@ const MakeReservationModalComponent = props => {
             onPress={() => {
               props.hideModal();
             }}
-            style={{backgroundColor: 'black', margin: 20, borderRadius: 5}}>
+            style={makeReservationModalStyles.appleIconContainer}>
             <Icon
               type={'AntDesign'}
               name="apple1"
-              style={{position: 'absolute', marginLeft: 100, color: 'white'}}
+              style={makeReservationModalStyles.appleIcon}
             />
 
-            <Text
-              style={{
-                color: 'white',
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 30,
-              }}>
-              {' '}
-              Pay{' '}
-            </Text>
+            <Text style={makeReservationModalStyles.payButton}> Pay </Text>
           </Button>
         </View>
       </View>

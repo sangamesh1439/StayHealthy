@@ -7,7 +7,6 @@ import {
   Text,
   ImageBackground,
   View,
-  ScrollView,
   TouchableNativeFeedback,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

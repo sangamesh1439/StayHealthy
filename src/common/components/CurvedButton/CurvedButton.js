@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Text,
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {Container, Header, Content, Button, Icon} from 'native-base';
+import {Text} from 'react-native';
+import {Button} from 'native-base';
 import {curvedButtonStyles} from './CurvedButton.styles';
 
 const CurvedButtonComponent = props => {

@@ -7,16 +7,17 @@
  */
 
 import React, {useEffect} from 'react';
-import {Text, View, FlatList} from 'react-native';
-import {recipeListStyles} from './RecipeList.styles';
-import {Container, Header, Content, Icon} from 'native-base';
+import {View, FlatList} from 'react-native';
+import {Icon} from 'native-base';
 import {Recipe} from './Recipe/Recipe';
+import {recipeListStyles} from './RecipeList.styles';
 
 const RecipeListComponent = props => {
   console.log('props sam', props);
   useEffect(() => {
     props.navigation.setParams({title: 'Breakfast'});
-  }, [props.navigation]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <View>
@@ -34,12 +35,7 @@ RecipeListComponent.navigationOptions = ({navigation}) => {
   return {
     title: navigation.getParam('title', 'Recipe List'),
     headerRight: () => {
-      return (
-        <Icon
-          name="search"
-          style={{color: 'white', fontSize: 25, padding: 10}}
-        />
-      );
+      return <Icon name="search" style={recipeListStyles.headerRight} />;
     },
   };
 };

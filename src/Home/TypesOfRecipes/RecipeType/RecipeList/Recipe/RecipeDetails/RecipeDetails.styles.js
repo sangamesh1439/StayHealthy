@@ -2,22 +2,29 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {colors} from '../../../../../../common/theme/colors';
 
 export const recipeDetailsStyles = ScaledSheet.create({
-  imageBackground: {
-    height: '200@ms',
-    // margin: "10@ms",
-    // borderRadius: "10@ms",
+  container: {backgroundColor: colors.WHITE_LIGHT, flex: 1},
+  headerRight: {color: 'white', fontSize: 25, padding: 10},
+  header: {
+    backgroundColor: 'transparent',
   },
-  imageStyle: {
-    // borderRadius: "10@ms",
+  count: {marginLeft: 5, opacity: 0.5},
+  item: {marginLeft: 5},
+  step: {
+    flexDirection: 'row',
+    padding: 20,
   },
-  linearGradientStyle: {
-    height: '200@ms',
-    // borderRadius: "10@ms",
+  flatList: {
+    flexGrow: 0,
+    margin: 20,
+    marginTop: 0,
+    backgroundColor: colors.WHITE,
+    borderRadius: 10,
   },
-  recipeTypeDecription: {
-    fontSize: '30@ms',
-    color: colors.WHITE,
-    paddingLeft: '10@ms',
-    paddingBottom: '10@ms',
+  row: {
+    height: 70,
+    flexDirection: 'row',
+    backgroundColor: colors.WHITE,
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 });

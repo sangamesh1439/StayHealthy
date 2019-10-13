@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  ImageBackground,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-} from 'react-native';
-import {Container, Header, Content, Button, Icon} from 'native-base';
+import {Text, ImageBackground, View} from 'react-native';
 import {imageCarouselStyles} from './ImageCarousel.styles';
 import LinearGradient from 'react-native-linear-gradient';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
@@ -17,7 +10,7 @@ const ImageCarouselComponent = props => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <View style={{height: 200}}>
+    <View style={imageCarouselStyles.parentView}>
       <Carousel
         data={props.images}
         renderItem={() => {
@@ -29,15 +22,8 @@ const ImageCarouselComponent = props => {
               <LinearGradient
                 colors={[colors.LIGHTBLACK, colors.TRANSPARENT]}
                 style={imageCarouselStyles.linearGradientStyle}>
-                <View
-                  style={{
-                    flex: 1,
-                    backgroundColor: 'transparent',
-                    justifyContent: 'flex-end',
-                  }}>
-                  <Text style={imageCarouselStyles.recipeTypeDecription}>
-                    {imageData.name}
-                  </Text>
+                <View style={imageCarouselStyles.recipeTypeDecription}>
+                  <Text> {imageData.name} </Text>
                 </View>
               </LinearGradient>
             </ImageBackground>
@@ -45,34 +31,19 @@ const ImageCarouselComponent = props => {
         }}
         sliderWidth={Dimensions.get('screen').width}
         itemWidth={Dimensions.get('screen').width}
-        style={{backgroundColor: 'green'}}
+        style={imageCarouselStyles.carouselStyle}
         onSnapToItem={setActiveSlide}
       />
 
       <Pagination
         dotsLength={props.images.length}
         activeDotIndex={activeSlide}
-        containerStyle={{
-          backgroundColor: 'transparent',
-          position: 'absolute',
-          right: 0,
-          bottom: -20,
-        }}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          backgroundColor: 'white',
-        }}
+        containerStyle={imageCarouselStyles.containerStyle}
+        dotStyle={imageCarouselStyles.dotStyle}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
       />
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: 'transparent',
-          justifyContent: 'flex-end',
-        }}>
+      <View style={imageCarouselStyles.titleContainer}>
         <Text style={imageCarouselStyles.title}>{props.title}</Text>
       </View>
     </View>
